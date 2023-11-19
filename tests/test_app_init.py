@@ -1,16 +1,9 @@
-import os
-import sys
+from src.utils.config import Config
+from flaskr import create_app
 import unittest
 import json
 from flask_sqlalchemy import SQLAlchemy
 
-# Adjust the path to include the directory containing the flaskr package
-current_directory = os.getcwd()
-sys.path.insert(0, os.path.join(current_directory, 'flaskr'))
-
-from flaskr import create_app
-from src.database.database import init_app, db
-from src.utils.config import Config
 
 config = Config()
 

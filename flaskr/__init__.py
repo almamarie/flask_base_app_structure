@@ -1,11 +1,11 @@
+from ..src.routes.user_router import user_bp
+from ..src.database.models.user_model import User
+from ..src.database.database import init_app, db
 from flask import Flask, jsonify
 from flask_migrate import Migrate
 from flask_moment import Moment
-
-from src.database.database import init_app, db
-from src.database.models.user_model import User
-
-from src.routes.user_router import user_bp
+import os
+import sys
 
 
 def create_app(text_config=None):
