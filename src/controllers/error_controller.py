@@ -1,6 +1,6 @@
 import copy
 from ..utils.config import Config
-from ..utils.AppError import AppError
+from ..utils.app_error import AppError
 from flask import jsonify
 config = Config()
 

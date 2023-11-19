@@ -1,13 +1,11 @@
 from ..src.routes.user_router import user_bp
 from ..src.database.models.user_model import User
 from ..src.database.database import init_app, db
-from ..src.utils.AppError import AppError
-from ..src.controllers.errorController import error_controller
+from ..src.utils.app_error import AppError
+from ..src.controllers.error_controller import error_controller
 from flask import Flask, jsonify
 from flask_migrate import Migrate
 from flask_moment import Moment
-import os
-import sys
 
 
 def create_app(text_config=None):
