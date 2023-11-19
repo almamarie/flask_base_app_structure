@@ -1,6 +1,8 @@
 from ..src.routes.user_router import user_bp
 from ..src.database.models.user_model import User
 from ..src.database.database import init_app, db
+from ..src.utils.AppError import AppError
+from ..src.controllers.errorController import error_controller
 from flask import Flask, jsonify
 from flask_migrate import Migrate
 from flask_moment import Moment
@@ -55,9 +57,11 @@ def create_app(text_config=None):
     @app.route('/', defaults={'path': ''})
     @app.route('/<path:path>')
     def catch_all(path):
-        return (jsonify({
-            "success": False,
-            "message": f"The route '{path}' is not defined."
-        }), 400)
+        raise AppError(f"Can't find ${path} on this server!", 400)
+
+    @app.errorhandler(AppError)
+    def global_error_handler(error):
+        err_response = error_controller(error)
+        return err_response
 
     return app

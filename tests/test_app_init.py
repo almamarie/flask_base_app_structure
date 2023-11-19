@@ -1,9 +1,20 @@
-from src.utils.config import Config
-from flaskr import create_app
+
 import unittest
 import json
 from flask_sqlalchemy import SQLAlchemy
+import os
+import sys
 
+current_directory = os.getcwd()
+flaskr_path = os.path.join(current_directory, 'flaskr')
+src_path = os.path.join(current_directory, 'src')
+
+# Adjust the path to include the directory containing the flaskr package
+sys.path.insert(0, os.path.join(flaskr_path))
+src_path = os.path.join(src_path)
+
+from flaskr import create_app  # noqa: E402
+from src.utils.config import Config  # noqa: E402
 
 config = Config()
 

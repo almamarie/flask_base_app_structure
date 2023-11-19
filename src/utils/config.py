@@ -12,6 +12,8 @@ class Config:
         'database_name': os.getenv('SQL_DATABASE')
     }
 
+    FLASK_ENV = os.getenv("FLASK_ENV", "production")
+
     if DATABASE_CONFIG['database_type'] == 'mysql':
         SQLALCHEMY_DATABASE_URI = (
             f"mysql://{DATABASE_CONFIG['username']}:{DATABASE_CONFIG['password']}"
