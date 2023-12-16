@@ -1,9 +1,6 @@
 from sqlalchemy import Column, Integer, String
-# from sqlalchemy.ext.declarative import declarative_base
 from ...utils.crud import create_item, get_all_items, get_item_by_id, update_item, delete_item
 from ..database import db
-
-# Base = declarative_base()
 
 
 class User(db.Model):

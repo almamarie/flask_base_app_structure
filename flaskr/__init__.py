@@ -1,11 +1,14 @@
-from ..src.routes.user_router import user_bp
-from ..src.database.models.user_model import User
-from ..src.database.database import init_app, db
-from ..src.utils.app_error import AppError
-from ..src.controllers.error_controller import error_controller
 from flask import Flask, jsonify
 from flask_migrate import Migrate
 from flask_moment import Moment
+from ..src.routes.user_router import user_bp
+# from ..src.database.models.user_model import User
+from ..src.database.database import init_app, db
+from ..src.utils.app_error import AppError
+from ..src.controllers.error_controller import error_controller
+
+
+# Create a custom logger and set its handler to the LoggerHandler instance
 
 
 def create_app(text_config=None):
